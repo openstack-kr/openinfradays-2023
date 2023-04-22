@@ -1,0 +1,87 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!--Page Title-->
+<section class="page-title">
+    <div class="auto-container">
+        <h1 style="color: #000000; word-break: keep-all;">{{ session.title }}</h1>
+         <div class="btn-box">
+             {% if session.slide %}
+                <a href="{{ session.slide.url }}" class="theme-btn btn-style-one"><span class="btn-title">Download Slide</span></a>
+             {% endif %}
+         </div>
+    </div>
+</section>
+<!--End Page Title-->
+
+<!-- Speker Detail -->
+<section class="speaker-detail">
+    <div class="auto-container">
+        <div class="row">
+            <div class="image-column col-lg-4 col-md-12 col-sm-12">
+                <div class="image-box">
+                    {% if session.speaker.profile_img %}
+                    <figure class="image"><img src="{{ session.speaker.profile_img.url }}" alt=""></figure>
+                    {% else %}
+                    <figure class="thumb"><img src="{% static 'images/empty_profile.png' %}" alt=""></figure>
+                    {% endif %}
+                    <ul class="social-icon-two social-icon-colored text-center">
+                        {% if session.speaker.facebook != '' %}
+                        <li><a href="{{ session.speaker.facebook }}"><i class="fa fa-facebook-f fa-2x"></i></a></li>
+                        {% endif %}
+                        {% if session.speaker.twitter != '' %}
+                        <li><a href="{{ session.speaker.twitter }}"><i class="fa fa-twitter fa-2x"></i></a></li>
+                        {% endif %}
+                        {% if session.speaker.blog != '' %}
+                        <li><a href="{{ session.speaker.blog }}"><i class="fa fa-home fa-2x"></i></a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+
+            <div class="info-column col-lg-8 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="text-box">
+                        <h3>{{ session.speaker.name }}</h3>
+                        <h4>Speaker's bio</h4>
+                        <p style="word-break: keep-all;">{{  session.speaker.bio|linebreaks }}</p>
+                        <h4>Schedule</h4>
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="speaker-session-info">
+                                    {% if session.session_type == 'Online'%}
+                                        <h5>온라인 공개</h5>
+                                    {% else %}
+                                        {% if session.room is None %}
+                                            <h5>Track : All Rooms</h5>
+                                        {% else %}
+                                            <h5>Track : {{ session.room.room_name }}</h5>
+                                        {% endif %}
+
+                                        <h5>Time: {{ session.time_slot.start_time }} ~ {{ session.time_slot.end_time }}</h5>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                        <h4>Session detail</h4>
+                        <p style="word-break: keep-all;">{{ session.details| safe }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="video_area" name="video_area">
+        </div>
+    </div>
+</section>
+
+<script>
+new ncplayer('video_area', {
+              autostart: false,
+              playlist: [
+                  {file: "{{ session.video_url}}" }
+                  ],
+            });
+</script>
+<!--End Speker Detail -->
+{% endblock %}

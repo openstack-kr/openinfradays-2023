@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- banner -->
+    <section class="banner-meetup" style="background-image: url({% static 'images/cover.png'%}); background-size: 100% 100%; ">
+         <div class="auto-container">
+             <div class="content-box">
+                <div class="address"><span class="icon fa fa-map-marker-alt"></span>Online Event / 2021-12-07 ~ 09</div>
+                <h2> OpenInfra Community <br>Days Korea 2021</h2>
+            </div>
+            <!-- Countdown -->
+
+            <div class="content-box">
+                <h3> Please Login and Enjoy the event!</h3>
+            </div>
+
+            {%  if not request.user.is_authenticated %}
+            <div class="btn-box">
+                <a href="/login" class="theme-btn btn-style-three"><span class="btn-title">Login / Register</span></a>
+            </div>
+            {% endif %}
+
+         </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <section class="about-section">
+        <div class="anim-icons full-width">
+            <span class="icon icon-circle-blue wow fadeIn"></span>
+            <span class="icon icon-dots wow fadeInleft"></span>
+            <span class="icon icon-circle-1 wow zoomIn"></span>
+        </div>
+        <div class="auto-container">
+            <div class="row">
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <span class="title">행사 소개</span>
+                            <h2>OpenInfra Community Days Korea 2023</h2>
+                            <div class="text">
+                                <p>OpenInfra Community Days Korea는 한국의 오픈소스 인프라 기술과 클라우드 네이티브 기술 커뮤니티가 함께 만드는 기술 컨퍼런스를 나타내는 이름입니다.<br>본 기술 컨퍼런스는 2014년부터 진행해온 오픈스택 한국 커뮤니티의 OpenStack Day 와 2018년부터 진행한 쿠버네티스 코리아 커뮤니티의 Cloud Native Day를 합쳐서 공동으로 진행합니다.</p>
+                                <p>2018년 “Open Infrastructure & Cloud Native Days Korea” 라는 이름으로 OpenStack, OCP, Ceph, Kubernetes 커뮤니티가 공동으로 컨퍼런스를 주최하였고, 2022년 “OpenInfra & Cloud Native Days Korea”에 이어서 2023년에는 OpenInfra Community Days Korea라는 공통의 주제로 오픈소스 인프라스트럭처 기술 전문가들을 위한 기술 교류의 장을 만들고자 합니다.
+
+                                <p>1일차는 Kubernetes Community Day & OpenInfra, Ceph Day Korea 2023 이름으로 Cloud Native, OpenInfra, Storage 기술 중심의 이야기를 다루는 날입니다.</p>
+                                <p>2일차는 OCP APAC TechDay 2023 이름으로 Open Compute Project 기술 중심으로 세션이 편성되며 Cloud Native, OpenInfra, Storage 기술 또한 다루는 날입니다.</p>
+                                <p>오픈소스 인프라 기술에 관심있는 모두가 다양한 주제로 2일의 행사를 재미있게 즐길 수 있도록 발표 주제가 분산되어 배치될 예정입니다.</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image wow fadeIn"><img src="{% static 'images/openinfra_stage_main.jpeg' %}" alt=""></figure>
+                    </div>
+                </div>
+                <!-- Content Column OpenStack -->
+              <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>OpenStack 한국 커뮤니티</h2>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>매월 기술세미나 개최 및 오픈스택 & 인프라 관련 스터디 프로그램 진행</li>
+                          <li>오픈소스 관련 컨퍼런스 발표 및 연 1회 OpenStack Day(s) 개최</li>
+                          <li>Open Learning Center와 교육프로그램 개설</li>
+                          <li>공식 한국어 번역팀 운영, 스터디 등 다양한 온/오프라인 커뮤니티 활동</li>
+                      </ul>
+                      <div class="btn-box"><a href="https://www.facebook.com/groups/openstack.kr" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY</span></a></div>
+                  </div>
+              </div>
+
+                <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>Kubernetes 코리아 그룹</h2>
+                          <div class="text">
+                            <p>쿠버네티스 코리아 그룹은 2016년 1월 9일에 만들어졌으며 2022년 현재 9천여명의 회원을 보유하고 있는 국내 최대 쿠버네티스 그룹입니다.</p>
+                        </div>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>정기 meetup (기술 세미나) 진행</li>
+                          <li>Cloud Native 관련 기술 스터디 프로그램 진행</li>
+                          <li>CNCF가 후원 하는 컨퍼런스 KCD Korea(Kubernetes Community Day in Korea) 개최</li>
+                          <li>공식 한국어 번역팀 운영, 스터디 등 다양한 온/오프라인 커뮤니티 활동</li>
+                    </ul>
+                    <div class="btn-box"><a href="https://www.facebook.com/groups/k8skr" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY</span></a></div>
+                  </div>
+              </div>
+
+              <!-- Content Column -->
+              <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>Ceph 한국 커뮤니티</h2>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>정기 meetup (기술 세미나) 진행 Ceph 관련 기술 스터디 프로그램 진행</li>
+                          <li>컨퍼런스 발표</li>
+                          <li>공식문서 번역 작업 진행</li>
+                      </ul>
+                      <div class="btn-box"><a href="https://www.facebook.com/groups/620899444961207" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY​</span></a></div>
+                  </div>
+              </div>
+
+              <!-- Content Column -->
+              <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>Open Compute Project 한국 커뮤니티</h2>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>정기 meetup (기술 세미나) 진행</li>
+                          <li>컨퍼런스 발표 및 전시 진행</li>
+                          <li>온라인 커뮤니티 운영</li>
+                      </ul>
+                      <div class="btn-box"><a href="https://web.facebook.com/groups/ocpkorea/" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY​</span></a></div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

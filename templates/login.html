@@ -1,0 +1,101 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+<script>
+
+    function getCookie(name) {
+        var cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    var csrftoken = getCookie('csrftoken');
+
+    function csrfSafeMethod(method) {
+        // these HTTP methods do not require CSRF protection
+        return (/^(GET|HEAD|OPTIONS|TRACE|PUT)$/.test(method));
+    }
+    $.ajaxSetup({
+        beforeSend: function(xhr, settings) {
+            if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+                xhr.setRequestHeader("X-CSRFToken", csrftoken);
+            }
+        }
+    });
+
+    function login() {
+        let data = {};
+        data.email = $('#user_email').val().trim();
+
+        if(data.email === '' ){
+            alert('이메일을 입력해주세요');
+        }
+
+        $.ajax({
+            url: '/login/onetime',
+            contentType: 'application/json',
+            dataType: 'json',
+            data: JSON.stringify(data),
+            type: 'POST',
+            success: function (data) {
+                console.info(data);
+                location.href = '/login/onetime';
+            },
+            error: function (request, status, error) {
+                console.info(status);
+                if(request.status === 401) {
+                    alert("가입되지 않는 이메일입니다");
+                }
+                else {
+                    alert('에러가 발생했습니다. support@openinfradays.kr 로 연락주세요')
+                }
+            }
+        });
+    }
+
+
+</script>
+<!--Page Title-->
+<section class="page-title">
+    <div class="auto-container">
+        <h1 style="color: #000000">OpenInfra 세계로 로그인하기</h1>
+    </div>
+</section>
+<!--End Page Title-->
+
+<section class="gallery-section">
+    <div class="auto-container text-center">
+        <div class="row justify-content-md-center">
+            <!-- Content Column -->
+            <div class="form-column col-lg-4 col-md-12 col-sm-12 ">
+                <div class="inner-column">
+                    <div class="ticket-form">
+                        <div class="form-group">
+                            <input type="email" id="user_email" name="email" placeholder="email address" required="">
+                        </div>
+                        <div class="form-group"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                <div class="btn-box">
+                    <a href="javascript:login();" class="theme-btn btn-style-two"><span class="btn-title">Login</span></a>
+                    <a href="/signup" class="theme-btn btn-style-one"><span class="btn-title">Sign up</span></a>
+                    <a href="/login/github" class="theme-btn btn-style-three"><span class="btn-title">Github Login</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

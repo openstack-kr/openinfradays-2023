@@ -1,0 +1,72 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+ <!--Sponsor Section-->
+<section class="gallery-section">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <span class="title">Schedules</span>
+            <h2>Schedules</h2>
+        </div>
+        <div class="container">
+            <div class="table-responsive">
+                <table class="table table-bordered text-center">
+                    <thead>
+                        <tr class="bg-light-gray">
+                            <th class="text-uppercase">Time
+                            </th>
+                            {% for room in rooms %}
+                            <th class="text-uppercase">{{ room.room_name }}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for ts, ss in sessions.items %}
+                            <tr>
+                                <td class="align-middle">{{ ts }}</td>
+                                {% if 'all' in ss %}
+
+                                    <td colspan="5">
+                                        <div class="font-size16 text-light-gray">
+                                            {% if ss.all.session_type != "TimeTable" %}
+                                            <a href="/session/{{ ss.all.id }}" target="_blank" style="word-break: keep-all;">{{ ss.all.title }}</a>
+                                            {% else %}
+                                            {{ ss.all.title }}
+                                            {% endif %}
+                                        </div>
+                                        {% if ss.all.session_type != "TimeTable" %}
+                                        <div class="font-size13 text-light-gray">{{ ss.all.speaker.name }}</div>
+                                        {% endif %}
+                                    </td>
+                                {% else %}
+                                    {% for room in rooms %}
+                                    <td>
+                                        {% with room_name=room.room_name %}
+                                            {% if room_name in ss %}
+                                                {% with session=ss|get_session_by_room_id:room_name %}
+                                                <div class="font-size16 text-light-gray">
+                                                    <a href="/session/{{ session.id }}" target="_blank" style="word-break: keep-all;">{{ session.title }}</a></div>
+                                                {% if ss.all.session_type != "TimeTable" %}
+                                                <div class="font-size13 text-light-gray">{{ session.speaker.name }}</div>
+                                                {% endif %}
+
+                                                {% endwith %}
+                                            {%  else %}
+                                                <div class="font-size13 text-light-gray">TBD</div>
+                                            {% endif %}
+                                        {% endwith %}
+                                    </td>
+                                    {% endfor %}
+                                {%  endif %}
+                            </tr>
+                        {% endfor %}
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
+    </div>
+</section>
+{% endblock %}

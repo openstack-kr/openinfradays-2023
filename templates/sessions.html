@@ -1,0 +1,134 @@
+{%  extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!--Page Title-->
+<section class="page-title">
+    <div class="auto-container">
+        <h1 style="color: #000000">Tech Sessions</h1>
+    </div>
+</section>
+<!--End Page Title-->
+
+<section class="schedule-section style-three">
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Keynote Session</h2>
+        </div>
+        <div class="schedule-timeline row">
+            <!-- schedule Block -->
+            {% for s in keynote %}
+            <div class="schedule-block col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                    <div class="inner">
+                        <div class="speaker-info">
+                            {% if s.speaker.profile_img %}
+                            <figure class="thumb"><img src="{{ s.speaker.profile_img.url }}" alt=""></figure>
+                            {% else %}
+                            <figure class="thumb"><img src="{% static 'images/empty_profile.png' %}" alt=""></figure>
+                            {% endif %}
+                            <h5 class="name">{{ s.speaker.name }}</h5>
+                            <span class="designation">{{ s.speaker.company }}</span>
+                        </div>
+                        <h4><a href="/session/{{ s.id }}" style="word-break: keep-all;">{{ s.title }}</a></h4>
+                        <div class="btn-box">
+                            <a href="/session/{{ s.id }}" class="theme-btn">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Sponsor Session</h2>
+        </div>
+        <div class="schedule-timeline row">
+            <!-- schedule Block -->
+            {% for s in sponsor %}
+            <div class="schedule-block col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                    <div class="inner">
+                        <div class="speaker-info">
+                            {% if s.speaker.profile_img %}
+                            <figure class="thumb"><img src="{{ s.speaker.profile_img.url }}" alt=""></figure>
+                            {% else %}
+                            <figure class="thumb"><img src="{% static 'images/empty_profile.png' %}" alt=""></figure>
+                            {% endif %}
+                            <h5 class="name">{{ s.speaker.name }}</h5>
+                            <span class="designation">{{ s.speaker.company }}</span>
+                        </div>
+                        <h4><a href="/session/{{ s.id }}" style="word-break: keep-all;">{{ s.title }}</a></h4>
+                        <div class="btn-box">
+                            <a href="/session/{{ s.id }}" class="theme-btn">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Online Session</h2>
+        </div>
+        <div class="schedule-timeline row">
+            <!-- schedule Block -->
+            {% for s in online %}
+            <div class="schedule-block col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                    <div class="inner">
+                        <div class="speaker-info">
+                            {% if s.speaker.profile_img %}
+                            <figure class="thumb"><img src="{{ s.speaker.profile_img.url }}" alt=""></figure>
+                            {% else %}
+                            <figure class="thumb"><img src="{% static 'images/empty_profile.png' %}" alt=""></figure>
+                            {% endif %}
+                            <h5 class="name">{{ s.speaker.name }}</h5>
+                            <span class="designation">{{ s.speaker.company }}</span>
+                        </div>
+                        <h4><a href="/session/{{ s.id }}" style="word-break: keep-all;">{{ s.title }}</a></h4>
+                        <div class="btn-box">
+                            <a href="/session/{{ s.id }}" class="theme-btn">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+
+    <div class="auto-container">
+        <div class="sec-title text-center">
+            <h2>Tech Session</h2>
+        </div>
+        <div class="schedule-timeline row">
+            <!-- schedule Block -->
+            {% for s in tech %}
+            <div class="schedule-block col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-box">
+                    <div class="inner">
+                        <div class="speaker-info">
+                            {% if s.speaker.profile_img %}
+                            <figure class="thumb"><img src="{{ s.speaker.profile_img.url }}" alt=""></figure>
+                            {% else %}
+                            <figure class="thumb"><img src="{% static 'images/empty_profile.png' %}" alt=""></figure>
+                            {% endif %}
+                            <h5 class="name">{{ s.speaker.name }}</h5>
+                            <span class="designation">{{ s.speaker.company }}</span>
+                        </div>
+                        <h4><a href="/session/{{ s.id }}" style="word-break: keep-all;">{{ s.title }}</a></h4>
+                        <div class="btn-box">
+                            <a href="/session/{{ s.id }}" class="theme-btn">Detail</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,7 @@
+venv/
+.venv/
+media/
+db.sqlite3
+openinfradays/settings_dev.py
+.idea
+**/*.pyc

@@ -1,0 +1,110 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>OpenInfra Community Days Korea 2023</title>
+
+
+<script src="https://kit.fontawesome.com/743247e065.js" crossorigin="anonymous"></script>
+<!-- Stylesheets -->
+<link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+<link href="{% static 'css/style.css' %}" rel="stylesheet">
+<link href="{% static 'css/virtualbooth.css' %}" rel="stylesheet">
+<link href="{% static 'css/login.css' %}" rel="stylesheet">
+<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+<link href="{% static 'css/timetable.css' %}" rel="stylesheet">
+<!--Color Switcher Mockup-->
+<link href="{% static 'css/color-switcher-design.css' %}" rel="stylesheet">
+
+<link rel="shortcut icon" href="{% static 'images/favicon.svg' %}" type="image/x-icon">
+<link rel="icon" href="{% static 'images/favicon.svg' %} " type="image/x-icon">
+
+<!-- Responsive -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+<!--[if lt IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+<!--[if lt IE 9]><script src="{% static 'js/respond.js' %}"></script><![endif]-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-MFFFPWPL06"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-MFFFPWPL06');
+</script>
+</head>
+<body>
+
+<div class="page-wrapper">
+    <span class="header-span"></span>
+
+    <!-- Main Header -->
+    {% if intro %}
+        <header class="main-header header-style-two">
+            <div class="main-box">
+                <div class="auto-container clearfix">
+                    <div class="logo-box">
+                        <div class="logo"><a href="/"><img src="{% static 'images/logo.svg' %}" alt="" title="OpenInfra"></a></div>
+                    </div>
+                </div>
+            </div>
+        </header>
+    {% else %}
+        {% include 'main-header.html' %}
+    {% endif %}
+
+    <!-- content -->
+
+    {% block content %}
+    {% endblock %}
+    <!-- Main Footer -->
+    <footer class="main-footer style-two">
+        <div class="auto-container">
+            <!-- Footer Content -->
+            <div class="footer-content">
+                <ul class="footer-nav">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/about">About Us</a></li>
+                    <li><a href="https://openinfra.dev/legal/code-of-conduct" target="_blank">Code of Conduct</a> </li>
+                </ul>
+                <div class="text">
+                     행사 문의 : <a href="mailto:support@openinfradays.kr">support@openinfradays.kr</a>
+                    <br>
+                     후원 문의 : <a href="mailto:sponsor@openinfradays.kr">sponsor@openinfradays.kr</a>
+                </div>
+                <div class="copyright-text">© Copyright 2023 All Rights Reserved by OpenInfra Community Days Korea<br>
+                    <a href="https://www.toast.com/">Powered By NHN Cloud</a> <br>
+                    <a href="https://www.cafe24.com/infra/cloud/">Supported By CAFE24 Cloud</a>
+
+                </div>
+                <ul class="social-icon-one">
+                    <li><a href="https://www.facebook.com/openinfrakorea"><span class="fa fa-facebook-f fa-3x"></span></a></li>
+                    <li><a href="https://www.youtube.com/c/OpenStackKoreaGroup"><span class="fa fa-youtube fa-3x"></span></a></li>
+                </ul>
+
+            </div>
+        </div>
+    </footer>
+    <!-- End Footer -->
+</div>
+
+<div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-double-up"></span></div>
+<script src="{% static 'js/jquery.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/jquery.fancybox.js' %}"></script>
+<script src="{% static 'js/jquery.countdown.js' %}"></script>
+<script src="{% static 'js/appear.js' %}"></script>
+<script src="{% static 'js/owl.js' %}"></script>
+<script src="{% static 'js/wow.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+<!-- Color Setting -->
+<script src="{% static 'js/color-settings.js' %}"></script>
+<script src="{% static 'js/map-script.js' %}"></script>
+<!--End Google Map APi-->
+</body>
+</html>

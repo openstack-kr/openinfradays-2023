@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%  block content %}
+    <!-- banner -->
+    <section class="banner-meetup" style="background-image: url({% static 'images/cover.png'%}); background-size: 100% 100%; ">
+         <div class="auto-container">
+              <div class="content-box">
+                 <div class="address"><span class="icon fa fa-map-marker-alt"></span>Seoul, COEX Grandballroom / 2023-07-03(Mon) ~ 04(Tue)</div>
+                 <h2> OpenInfra Community <br>Days Korea 2023</h2>
+             </div>
+             <div class="row">
+                 <div class="col-lg-12 offset-lg-3">
+                     <div class="content-box" style="text-align: left">
+                        <h4>Day1: Kubernetes Community Days & OpenInfra, Ceph Day</h4>
+                        <h4>Day2: OCP Tech Summit</h4>
+                     </div>
+                 </div>
+             </div>
+         </div>
+    </section>
+    <section class="coming-soon-section">
+        <div class="auto-container">
+            <div class="outer-box">
+                <h4 style="color: #ffffff">함께 해요</h4>
+                <a href="https://forms.gle/xxeDZwp4sENNcRWMA" class="theme-btn btn-style-two">발표자 모집(한국어)</a>
+                <!-- <a href="/bulk" class="theme-btn btn-style-three">Call For Speaker(Eng)</a> -->
+                <a href="https://nh.nu/skFo" class="theme-btn btn-style-three">후원사 모집(Call for Sponsor)</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="about-section">
+        <div class="anim-icons full-width">
+            <span class="icon icon-circle-blue wow fadeIn"></span>
+            <span class="icon icon-dots wow fadeInleft"></span>
+            <span class="icon icon-circle-1 wow zoomIn"></span>
+        </div>
+        <div class="auto-container">
+            <div class="row">
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="sec-title">
+                            <span class="title">행사 소개</span>
+                            <h2>OpenInfra Community Days Korea 2023</h2>
+                            <div class="text">
+                                <p>OpenInfra Community Days Korea는 한국의 오픈소스 인프라 기술과 클라우드 네이티브 기술 커뮤니티가 함께 만드는 기술 컨퍼런스를 나타내는 이름입니다.<br>본 기술 컨퍼런스는 2014년부터 진행해온 오픈스택 한국 커뮤니티의 OpenStack Day 와 2018년부터 진행한 쿠버네티스 코리아 커뮤니티의 Cloud Native Day를 합쳐서 공동으로 진행합니다.</p>
+                                <p>2018년 “Open Infrastructure & Cloud Native Days Korea” 라는 이름으로 OpenStack, OCP, Ceph, Kubernetes 커뮤니티가 공동으로 컨퍼런스를 주최하였고, 2022년 “OpenInfra & Cloud Native Days Korea”에 이어서 2023년에는 OpenInfra Community Days Korea라는 공통의 주제로 오픈소스 인프라스트럭처 기술 전문가들을 위한 기술 교류의 장을 만들고자 합니다.
+
+                                <p>1일차는 Kubernetes Community Day & OpenInfra, Ceph Day Korea 2023 이름으로 Cloud Native, OpenInfra, Storage 기술 중심의 이야기를 다루는 날입니다.</p>
+                                <p>2일차는 OCP APAC TechDay 2023 이름으로 Open Compute Project 기술 중심으로 세션이 편성되며 Cloud Native, OpenInfra, Storage 기술 또한 다루는 날입니다.</p>
+                                <p>오픈소스 인프라 기술에 관심있는 모두가 다양한 주제로 2일의 행사를 재미있게 즐길 수 있도록 발표 주제가 분산되어 배치될 예정입니다.</p>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="image-box">
+                        <figure class="image wow fadeIn"><img src="{% static 'images/openinfra_stage_main.jpeg' %}" alt=""></figure>
+                    </div>
+                </div>
+                <!-- Content Column OpenStack -->
+              <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>OpenStack 한국 커뮤니티</h2>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>매월 기술세미나 개최 및 오픈스택 & 인프라 관련 스터디 프로그램 진행</li>
+                          <li>오픈소스 관련 컨퍼런스 발표 및 연 1회 OpenStack Day(s) 개최</li>
+                          <li>Open Learning Center와 교육프로그램 개설</li>
+                          <li>공식 한국어 번역팀 운영, 스터디 등 다양한 온/오프라인 커뮤니티 활동</li>
+                      </ul>
+                      <div class="btn-box"><a href="https://www.facebook.com/groups/openstack.kr" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY</span></a></div>
+                  </div>
+              </div>
+
+                <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>Kubernetes 코리아 그룹</h2>
+                          <div class="text">
+                            <p>쿠버네티스 코리아 그룹은 2016년 1월 9일에 만들어졌으며 2022년 현재 9천여명의 회원을 보유하고 있는 국내 최대 쿠버네티스 그룹입니다.</p>
+                        </div>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>정기 meetup (기술 세미나) 진행</li>
+                          <li>Cloud Native 관련 기술 스터디 프로그램 진행</li>
+                          <li>CNCF가 후원 하는 컨퍼런스 KCD Korea(Kubernetes Community Day in Korea) 개최</li>
+                          <li>공식 한국어 번역팀 운영, 스터디 등 다양한 온/오프라인 커뮤니티 활동</li>
+                    </ul>
+                    <div class="btn-box"><a href="https://www.facebook.com/groups/k8skr" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY</span></a></div>
+                  </div>
+              </div>
+
+              <!-- Content Column -->
+              <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>Ceph 한국 커뮤니티</h2>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>정기 meetup (기술 세미나) 진행 Ceph 관련 기술 스터디 프로그램 진행</li>
+                          <li>컨퍼런스 발표</li>
+                          <li>공식문서 번역 작업 진행</li>
+                      </ul>
+                      <div class="btn-box"><a href="https://www.facebook.com/groups/620899444961207" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY​</span></a></div>
+                  </div>
+              </div>
+
+              <!-- Content Column -->
+              <div class="content-column col-lg-12 col-md-12 col-sm-12">
+                  <div class="inner-column">
+                      <div class="sec-title">
+                          <span class="title">ABOUT COMMUNITY</span>
+                          <h2>Open Compute Project 한국 커뮤니티</h2>
+                      </div>
+                      <ul class="list-style-one">
+                          <li>정기 meetup (기술 세미나) 진행</li>
+                          <li>컨퍼런스 발표 및 전시 진행</li>
+                          <li>온라인 커뮤니티 운영</li>
+                      </ul>
+                      <div class="btn-box"><a href="https://web.facebook.com/groups/ocpkorea/" target="_blank" class="theme-btn btn-style-three"><span class="btn-title">VISIT COMMUNITY​</span></a></div>
+                  </div>
+              </div>
+            </div>
+        </div>
+    </section>
+
+    <!--End Features Section -->
+    <section class="about-section">
+        <div class="auto-container">
+            <!-- Sec Title -->
+            <div class="sec-title">
+                <span class="title">FAQ'S</span>
+                <h2>General Questions</h2>
+            </div>
+
+            <div class="row clearfix">
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <!--Accordian Box-->
+                        <ul class="accordion-box">
+                            <!--Block-->
+                            <li class="accordion block wow fadeInUp">
+                                <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-angle-down"></span> </div>참가 신청은 어떻게 하나요?</div>
+                                <div class="acc-content">
+                                    <div class="content">
+                                        <div class="text">참가 신청은 5~6월 중 홈페이지를 통해 진행합니다. 자세한 일정과 공지는 홈페이지를 통해 추후 공개됩니다.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion block wow fadeInUp">
+                                <div class="acc-btn"><div class="icon-outer"><span class="icon icon-plus fa fa-angle-down"></span> </div>점심 식사를 제공해주나요?</div>
+                                <div class="acc-content">
+                                    <div class="content">
+                                        <div class="text">보다 안전한 행사 운영을 점심 식사를 제공하지 않습니다.</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <!--Accordian Box-->
+                        <ul class="accordion-box">
+                            <!--Block-->
+                            <li class="accordion block active-block wow fadeInUp">
+                                <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-angle-down"></span> </div>온라인으로 생중계를 해주나요?</div>
+                                <div class="acc-content">
+                                    <div class="content">
+                                        <div class="text">온라인으로 생중계는 하지 않습니다. 다만, 행사 후 세션은 녹화되어 공개됩니다. <br>또한 온라인으로만 발표하는 세션도 있어, 홈페이지를 통해 보실 수 있습니다.</div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="accordion block active-block wow fadeInUp">
+                                <div class="acc-btn active"><div class="icon-outer"><span class="icon icon-plus fa fa-angle-down"></span> </div>발표 다시보기가 가능한가요?</div>
+                                <div class="acc-content">
+                                    <div class="content">
+                                        <div class="text">컨퍼런스 이 후 홈페이지를 통해 다시보기를 지원합니다. 단, 다시보기 지원까지 1개월 이상 소요될 수 있습니다.</div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="venue" class="about-section">
+        <div class="auto-container">
+            <div class="sec-title">
+                <span class="title">행사 장소 (Venue)</span>
+                <h2>서울 코엑스 그랜드 볼룸 (Seoul, COEX Grandballroom)</h2>
+            </div>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4445.040901712181!2d127.05497241494857!3d37.513394566314396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357ca46af653508b%3A0x77dcffee7049376b!2z7L2U7JeR7IqkIOq3uOuenOuTnOuzvOujuA!5e0!3m2!1sen!2skr!4v1662886185173!5m2!1sen!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </section>
+
+    <section class="gallery-section">
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <span class="title">Sponsors</span>
+                <h2>Diamond</h2>
+            </div>
+
+            <div class="row">
+                {% for d in diamond %}
+                    <div class="gallery-item col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                        <div class="image-box text-center">
+                            <figure class="image-box"><a href="{{  d.homepage_url }}" target="_blank"><img src="{{ d.logo.url }}" alt="{{  d.name_ko }}"></a></figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="auto-container">
+            <div class="sec-title text-center">
+                <h2>Platinum</h2>
+            </div>
+            <div class="row">
+                {% for d in Platinum %}
+                    <div class="gallery-item col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                        <div class="image-box text-center">
+                            <figure class="image-box"><a href="{{  d.homepage_url }}" target="_blank"><img src="{{ d.logo.url }}" alt="{{  d.name_ko }}"></a></figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="auto-container">
+             <div class="sec-title text-center">
+                <h2>Gold</h2>
+            </div>
+            <div class="row">
+                {% for d in gold %}
+                    <div class="gallery-item col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                        <div class="image-box text-center">
+                            <figure class="image-box"><a href="{{  d.homepage_url }}" target="_blank"><img src="{{ d.logo.url }}" alt="{{  d.name_ko }}"></a></figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="auto-container">
+             <div class="sec-title text-center">
+                <h2>Media</h2>
+            </div>
+            <div class="row">
+                {% for d in media %}
+                    <div class="gallery-item col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                        <div class="image-box text-center">
+                            <figure class="image-box"><a href="{{  d.homepage_url }}" target="_blank"><img src="{{ d.logo.url }}" alt="{{  d.name_ko }}"></a></figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+    </section>
+
+{% endblock %}
