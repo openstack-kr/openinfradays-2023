@@ -1,0 +1,39 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+
+<section id="clients-section" class="clients-section">
+    <div class="auto-container">
+
+        {% if user != None %}
+            <div class="sec-title">
+                <h2>Registration Check<br>등록 확인</h2>
+            </div>
+
+
+            <div class="sponsors-outer">
+                <div class="modal-page-regist">
+                    <div class="section-form">
+                        <dl class="form-regist">
+                            <form action="/registration_check" method="post">
+                                {% csrf_token %}
+                                <label class="txt-label" style="color:#000000">Phone (without hyphen / 하이픈 없이 입력)</label>
+                                <input name="input_phone" type="text" class="input-text" maxlength="200" required>
+                                <label class="txt-label" style="color:#000000">Name</label>
+                                <input name="input_name" type="text" class="input-text" maxlength="100" required>
+                                <input class="theme-btn btn-style-two" type="submit" value="Check (확인)">
+                            </form>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <div class="sec-title">
+                <h2>No Registration Information<br>등록된 정보가 없습니다</h2>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

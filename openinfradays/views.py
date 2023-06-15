@@ -24,18 +24,6 @@ def get_session_by_room_id(sessions, room_id):
     return sessions.get(room_id)
 
 
-def agreement_required(function):
-    def wrap(request, *args, **kwargs):
-        if request.user.is_authenticated:
-            try:
-                if not request.user.profile.agree_with_private:
-                    return redirect('/join')
-            except Exception as e:
-                pass
-        return function(request, *args, **kwargs)
-    return wrap
-
-
 def make_menu_context(current=None):
     context = {'about_current': '', 'sponsor_current': '', 'schedule_current': '', 'program_current': '',
                'virtualbooth_current': '', 'intro': False}
@@ -162,6 +150,35 @@ def session_list(request):
     return render(request, 'sessions.html', {**menu, **context})
 
 
-def event(request):
-    return render(request, 'event.html')
+def check_to_plan9(name, phone):
+    import requests
+    import json
+    data = {'name': name, 'phone': phone}
+
+    res = requests.post(url='https://www.plan9.co.kr/openinfra/assets/app/search.php',
+                        headers={
+                            "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
+                            "Host": "www.plan9.co.kr",
+                        },
+                        data={
+                            "data": json.dumps(data)
+                        }
+                        )
+    try:
+        d = res.json()
+    except:
+        return None, None, None, False
+    return d['name'], d['email'], d['company'], True
+
+
+def registration_check(request):
+    if request.method == "POST":
+        name = request.POST.get('input_name')
+        phone = request.POST.get('input_phone')
+        r_name, email, company, flag = check_to_plan9(name, phone)
+        return render(request, 'profile.html', {'name': r_name, 'email': email, 'company': company, 'flag': flag})
+
+
+    return render(request, 'registration_check.html')
+
 
