@@ -41,7 +41,7 @@ class TimeSlot(models.Model):
     end_time = models.CharField(max_length=10)
 
     def __str__(self):
-        return self.start_time
+        return self.event_date + " - " +self.start_time
 
 
 class Room(models.Model):
