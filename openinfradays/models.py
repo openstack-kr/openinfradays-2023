@@ -36,6 +36,7 @@ class Speaker(models.Model):
 
 
 class TimeSlot(models.Model):
+    event_date = models.CharField(max_length=10, default='Day 1', choices=[('Day 1', 'Day1'), ('Day 2', 'Day2')])
     start_time = models.CharField(max_length=10)
     end_time = models.CharField(max_length=10)
 
@@ -59,7 +60,7 @@ class TechSession(models.Model):
     ad1_url = models.CharField(max_length=1000, default='', blank=True)
     ad2_url = models.CharField(max_length=1000, default='', blank=True)
     open_date = models.DateField(default='2021-12-07')
-
+    event_date = models.CharField(max_length=10, default='Day 1', choices=[('Day 1', 'Day1'), ('Day 2', 'Day2')])
     session_type = models.CharField(max_length=20,
                                     choices=[('Keynote', 'Keynote'), ('Sponsor', 'Sponsor'), ('Tech', "Tech"),
                                              ('Community', "Community"), ('Online', 'Online'),

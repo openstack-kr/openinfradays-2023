@@ -21,7 +21,7 @@ class SponsorAdmin(admin.ModelAdmin):
 
 
 class TechSessionAdmin(admin.ModelAdmin):
-    list_display = ('title', 'get_speaker', 'session_type', 'get_room', 'get_time', 'video_url')
+    list_display = ('title', 'get_speaker', 'session_type', 'get_room', 'get_time', 'video_url', 'event_date')
 
     @admin.display(ordering='speaker__name', description='Speaker')
     def get_speaker(self, obj):
@@ -82,7 +82,7 @@ class AdVideoAdmin(admin.ModelAdmin):
 
 
 class TimeSlotAdmin(admin.ModelAdmin):
-    list_display = ('start_time', 'end_time')
+    list_display = ('start_time', 'end_time', 'event_date',)
 
 
 class RoomAdmin(admin.ModelAdmin):
