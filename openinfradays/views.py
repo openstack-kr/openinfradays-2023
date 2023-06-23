@@ -98,6 +98,10 @@ def schedules_day1(request):
     return render(request, 'schedules_day1.html', {**menu, **context})
 
 
+def schedules_day2(request):
+    return render(request, 'schedules_day2.html')
+
+
 def virtualbooth_detail(request, virtualbooth_id):
     virtualbooth = VirtualBooth.objects.get(id=virtualbooth_id)
     menu = make_menu_context('virtualbooth')
