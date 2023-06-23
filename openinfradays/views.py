@@ -105,13 +105,16 @@ def schedules_day2(request):
         Q(event_date='Day 2') & (Q(session_type='Tech') | Q(session_type='Sponsor')
                                  | Q(session_type='Keynote') | Q(session_type='TimeTable')))
     session_per_time = {}
-    for s in slots:
-        session_per_time[s.start_time] = {}
-    for t in tech_session:
-        if t.room is None:
-            session_per_time[t.time_slot.start_time]['all'] = t
-        else:
-            session_per_time[t.time_slot.start_time][t.room.room_name] = t
+    try:
+        for s in slots:
+            session_per_time[s.start_time] = {}
+        for t in tech_session:
+            if t.room is None:
+                session_per_time[t.time_slot.start_time]['all'] = t
+            else:
+                session_per_time[t.time_slot.start_time][t.room.room_name] = t
+    except:
+        print('a')
 
     menu = make_menu_context('schedule')
     context = {'rooms': rooms, 'sessions': session_per_time}
