@@ -80,7 +80,7 @@ def virtualbooth(request):
 
 
 def schedules_day1(request):
-    rooms = Room.objects.all()
+    rooms = Room.objects.filter(day1=True)
     slots = TimeSlot.objects.filter(event_date="Day 1").order_by('start_time')
     tech_session = TechSession.objects.filter(Q(event_date='Day 1') & (Q(session_type='Tech') | Q(session_type='Sponsor')
                                               | Q(session_type='Keynote') | Q(session_type='TimeTable')))
@@ -99,7 +99,27 @@ def schedules_day1(request):
 
 
 def schedules_day2(request):
-    return render(request, 'schedules_day2.html')
+    rooms = Room.objects.filter(day2=True)
+    slots = TimeSlot.objects.filter(event_date="Day 2").order_by('start_time')
+    tech_session = TechSession.objects.filter(
+        Q(event_date='Day 2') & (Q(session_type='Tech') | Q(session_type='Sponsor')
+                                 | Q(session_type='Keynote') | Q(session_type='TimeTable')))
+    session_per_time = {}
+    for s in slots:
+        session_per_time[s.start_time] = {}
+    for t in tech_session:
+        if t.room is None:
+            session_per_time[t.time_slot.start_time]['all'] = t
+        else:
+            session_per_time[t.time_slot.start_time][t.room.room_name] = t
+
+    menu = make_menu_context('schedule')
+    context = {'rooms': rooms, 'sessions': session_per_time}
+    return render(request, 'schedules_day2.html', {**menu, **context})
+
+
+def schedules_day2_temp(request):
+    return render(request, 'schedules_day2_tmp.html')
 
 
 def virtualbooth_detail(request, virtualbooth_id):

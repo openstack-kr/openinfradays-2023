@@ -46,6 +46,8 @@ class TimeSlot(models.Model):
 
 class Room(models.Model):
     room_name = models.CharField(max_length=10)
+    day1 = models.BooleanField(default=True)
+    day2 = models.BooleanField(default=False)
 
     def __str__(self):
         return self.room_name
