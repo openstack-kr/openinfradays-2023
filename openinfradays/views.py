@@ -82,8 +82,8 @@ def virtualbooth(request):
 def schedules_day1(request):
     rooms = Room.objects.all()
     slots = TimeSlot.objects.filter(event_date="Day 1").order_by('start_time')
-    tech_session = TechSession.objects.filter(Q(session_type='Tech') | Q(session_type='Sponsor')
-                                              | Q(session_type='Keynote') | Q(session_type='TimeTable') | Q(event_date='Day 1'))
+    tech_session = TechSession.objects.filter(Q(event_date='Day 1') & (Q(session_type='Tech') | Q(session_type='Sponsor')
+                                              | Q(session_type='Keynote') | Q(session_type='TimeTable')))
     session_per_time = {}
     for s in slots:
         session_per_time[s.start_time] = {}
