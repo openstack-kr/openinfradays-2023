@@ -26,7 +26,8 @@ urlpatterns = [
     path('sessions', views.session_list),
     path('session/<int:session_id>', views.session_detail),
     path('about', views.about),
-    path('registration_check', views.registration_check)
+    path('registration_check', views.registration_check),
+    path('schedule_day1', views.schedules_day1),
 
 ]
 

@@ -15,17 +15,17 @@
                 <table class="table table-bordered text-center">
                     <thead>
                         <tr class="bg-light-gray">
-                            <th class="text-uppercase">Time
+                            <th class="text-uppercase text-light-gray">Time
                             </th>
                             {% for room in rooms %}
-                            <th class="text-uppercase">{{ room.room_name }}</th>
+                            <th class="text-uppercase text-light-gray">{{ room.room_name }}</th>
                             {% endfor %}
                         </tr>
                     </thead>
                     <tbody>
                         {% for ts, ss in sessions.items %}
                             <tr>
-                                <td class="align-middle">{{ ts }}</td>
+                                <td class="align-middle text-light-gray">{{ ts }}</td>
                                 {% if 'all' in ss %}
 
                                     <td colspan="7">

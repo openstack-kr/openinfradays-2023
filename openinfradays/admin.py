@@ -23,6 +23,11 @@ class SponsorAdmin(admin.ModelAdmin):
 class TechSessionAdmin(admin.ModelAdmin):
     list_display = ('title', 'get_speaker', 'session_type', 'get_room', 'get_time', 'video_url', 'event_date')
 
+    def formfield_for_foreignkey(self, db_field, request, **kwargs):
+        if db_field.name == "time_slot":
+            kwargs["queryset"] = TimeSlot.objects.order_by('event_date', 'start_time')
+        return super(TechSessionAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
+
     @admin.display(ordering='speaker__name', description='Speaker')
     def get_speaker(self, obj):
         return obj.speaker.name

@@ -79,9 +79,9 @@ def virtualbooth(request):
     return render(request, 'virtualbooth.html', {**menu, **context})
 
 
-def schedules(request):
+def schedules_day1(request):
     rooms = Room.objects.all()
-    slots = TimeSlot.objects.all()
+    slots = TimeSlot.objects.filter(event_date="Day 1").order_by('start_time')
     tech_session = TechSession.objects.filter(Q(session_type='Tech') | Q(session_type='Sponsor')
                                               | Q(session_type='Keynote') | Q(session_type='TimeTable'))
     session_per_time = {}
@@ -95,7 +95,7 @@ def schedules(request):
 
     menu = make_menu_context('schedule')
     context = {'rooms': rooms, 'sessions': session_per_time}
-    return render(request, 'schedules.html', {**menu, **context})
+    return render(request, 'schedules_day1.html', {**menu, **context})
 
 
 def virtualbooth_detail(request, virtualbooth_id):
