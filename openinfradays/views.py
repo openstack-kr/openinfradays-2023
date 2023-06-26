@@ -256,10 +256,11 @@ def handsonlab_apply(request, handsonlab_title, option=None):
         return render(request, 'profile.html', {'name': r_name, 'email': email, 'company': company, 'flag': flag})
 
     apply = HandsonlabApply.objects.filter(handsonlab=handsonlab_title)
-    entity = HandsonlabApply.objects.filter(phone=phone).get()
+    entity = HandsonlabApply.objects.filter(phone=phone)
     hol = Handsonlab.objects.get(title=handsonlab_title)
 
     if entity:
+        entity = entity.get()
         if entity.handsonlab == handsonlab_title:
             return render(request, 'handsonlab_apply.html', {'finish': 2, 'title': rtitle})
         else:
