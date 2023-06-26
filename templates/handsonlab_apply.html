@@ -1,0 +1,65 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+
+
+<section id="clients-section" class="clients-section">
+    <div class="auto-container">
+        {% if finish == 1 %}
+            <div class="sec-title">
+                  <h2>{{ title }}</h2><br><br>
+                    <h3 style="color: #000000">마감되었습니다</h3>
+            </div>
+        {% elif finish == 2 %}
+            <div class="sec-title">
+                  <h2>{{ title }}</h2><br><br>
+                    <h3 style="color: #000000">이미 등록하셨습니다</h3>
+            </div>
+        {% elif finish == 3 %}
+            <div class="sec-title">
+                  <h2>이미 다른 핸즈온랩에 등록하셨습니다</h2><br><br>
+                    <h3 style="color: #000000"> 등록한 핸즈온랩 : {{ other_title }}</h3>
+            </div>
+        {% else %}
+            {% if not flag %}
+                <div class="sec-title">
+                    <h2>Hands on Lab 등록</h2><h3 style="color: #000000">제목: {{ title }}</h3>
+                <p>
+                    컨퍼런스에 등록한 사람만 신청가능합니다.
+                </p>
+                </div>
+
+
+                <h2 style="color: #000000">컨퍼런스 등록 정보 입력</h2>
+                <div class="sponsors-outer">
+                    <div class="modal-page-regist">
+
+                        <div class="section-form">
+                            <dl class="form-regist">
+                                {% if option %}
+                                    <form action="/handsonlab/{{ htitle }}/apply/{{ option }}" method="post">
+                                {% else %}
+                                    <form action="/handsonlab/{{ htitle }}/apply" method="post">
+                                {% endif %}
+                                    {% csrf_token %}
+                                    <label class="txt-label" style="color:#000000">Phone (without hyphen / 하이픈 없이 입력)</label>
+                                    <input name="input_phone" type="text" class="input-text" maxlength="200" required>
+                                    <label class="txt-label" style="color:#000000">Name</label>
+                                    <input name="input_name" type="text" class="input-text" maxlength="100" required>
+                                    <input class="theme-btn btn-style-two" type="submit" value="Check (확인)">
+                                </form>
+                            </dl>
+                        </div>
+                    </div>
+                </div>
+            {% else %}
+                <div class="sec-title">
+                    <h2>{{ title }}</h2><br><br>
+                    <h3 style="color: #000000">정상적으로 등록되었습니다.</h3>
+                </div>
+            {% endif %}
+        {% endif %}
+    </div>
+</section>
+
+{% endblock %}

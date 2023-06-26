@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="detail-section">
+    <!-- Top -->
+    <div class="detail-top">
+        <div class="txt-top">
+            <div class="detail-title">
+                Kubernetes on Openstack with kuryr
+            </div>
+        </div>
+    </div>
+    <div class="area-link">
+        <a href="/handsonlab/mantech/apply">신청하기 (선착순 30명)</a>
+    </div>
+
+    <div class="txt-introduce">
+        <h2>진행자 소개</h2>
+        <p>
+            OM사업본부 김석영 대리 <br><br><br>
+현재 맨텍에서 쿠버네티스 기반 클라우드 엔지니어로 활동하고 있습니다.<br><br>
+Private Cloud에 대한 관심이 많고, 쿠버네티스와 결합하면 좋을 다양한 오픈소스 프로젝트를 접해가며 새로운 기술에 지속적으로 도전하고 있습니다.<br><br>
+
+        </p>
+        <h2>개요</h2>
+        <p>
+        1) 오픈스택 환경에서 Air-gapped 쿠버네티스를 설치해보는 시간을 가질 예정입니다. <br><br>
+2) Kuryr CNI를 배포해보며 Neutron-based networking in Kubernetes 환경을 경험해 보실 수 있습니다.<br><br>
+3) Ceph CSI(Container Storage Interface)를 통해 쿠버네티스에서 Ceph를 직접 사용해보는 시간을 가질 예정입니다.<br><br>
+        </p>
+        <h2>핸즈온 수강을 위한 조건</h2>
+        <br>
+        <h3>< 개념 이해 ></h3>
+        <p>
+            - Kubernetes 및 Openstack Networking(Neutron)에 대한 기본 개념을 이해하고 오시면 좋습니다.<br><br>
+- Openstack Horizon Dashboard를 사용해본 경험이 있으면 좋습니다.<br><br>
+- Ceph에 대한 기본 개념을 이해하고 오시면 좋습니다.<br><br>
+
+        </p>
+        <h3>< 준비 사항 ></h3>
+        <p>
+            - 본인 노트북 및 SSH 클라이언트(PuTTY, Xshell 등)<br><br>
+- Chrome, Firefox 등 인터넷 브라우저<br><br>
+
+        </p>
+
+        <h3>대상자</h3>
+        <p>
+            - 레벨 : 초중급<br><br>
+- 오픈스택 환경에서 쿠버네티스 구축 및 운영에 관심이 있으신 분<br><br>
+- 오픈스택 네트워크와 쿠버네티스 네트워크의 통합이 궁금하신 분<br><br>
+- Kubernetes에서 Ceph를 사용하는 방법이 궁금하신 분<br><br>
+
+        </p>
+    </div>
+
+    {% if vb.video1 %}
+    <div class="area-video">
+        <iframe width="80%" height="450" src="{{ vb.video1 }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+
+    {% if vb.video2 %}
+    <div class="area-video">
+        <iframe width="80%" height="450" src="{{ vb.video2 }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+
+    {% if vb.video3 %}
+    <div class="area-video">
+        <iframe width="80%" height="450" src="{{ vb.video3 }}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    {% endif %}
+
+    {% if vb.image1 %}
+    <div class="area-image">
+        {% if vb.image1_link != '' %}
+            <a href="{{vb.image1_link.url }}"><img src="{{ vb.image1.url }}"></a>
+        {% else %}
+            <img src="{{ vb.image1.url }}">
+        {% endif %}
+    </div>
+    {% endif %}
+
+    {% if vb.image2 %}
+    <div class="area-image">
+         {% if vb.image2_link != '' %}
+             <a href="{{vb.image2_link.url }}"><img src="{{ vb.image2.url }}"></a>
+         {% else %}
+             <img src="{{ vb.image2.url }}">
+         {% endif %}
+    </div>
+    {% endif %}
+
+    {% if vb.image3 %}
+    <div class="area-image">
+        <img src="{{ vb.image3.url }}">
+    </div>
+    {% endif %}
+
+
+
+</section>
+{% endblock %}

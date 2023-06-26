@@ -31,8 +31,12 @@ urlpatterns = [
     path('schedule_day2', views.schedules_day2),
     path('schedule/day1', views.schedules_day1),
     path('schedule/day2', views.schedules_day2),
-    path('schedule_day2_temp', views.schedules_day2_temp),
-
+    path('handsonlab', views.handsonlab),
+    path('handsonlab/<str:title>', views.handsonlab_detail),
+    path('handsonlab/<str:handsonlab_title>/apply/<str:option>', views.handsonlab_apply),
+    path('handsonlab/<str:handsonlab_title>/apply', views.handsonlab_apply),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+handler404 = "openinfradays.views.handler404"

@@ -130,6 +130,19 @@ def save_user_profile(sender, instance, **kwargs):
         Profile.objects.create(user=instance)
 
 
+class Handsonlab(models.Model):
+    title = models.CharField(max_length=10)
+    max_capacity = models.IntegerField()
+
+
+class HandsonlabApply(models.Model):
+    handsonlab = models.CharField(max_length=10)
+    name = models.CharField(max_length=10)
+    email = models.CharField(max_length=50)
+    phone = models.CharField(max_length=30)
+    company = models.CharField(max_length=100)
+
+
 class AdVideo(models.Model):
     url = models.CharField(max_length=100, default='')
 

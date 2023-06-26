@@ -3,7 +3,7 @@ from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.contrib.auth.models import User
 
 from .models import Sponsor, TechSession, Speaker, VirtualBooth,\
-    Profile, AdVideo, Room, TimeSlot, RegistrationCount
+    Profile, AdVideo, Room, TimeSlot, RegistrationCount, Handsonlab, HandsonlabApply
 
 
 class AccessLogAdmin(admin.ModelAdmin):
@@ -94,6 +94,14 @@ class RoomAdmin(admin.ModelAdmin):
     list_display = ('room_name',)
 
 
+class HandsonlabAdmin(admin.ModelAdmin):
+    list_display = ('title', 'max_capacity',)
+
+
+class HandsonlabApplyAdmin(admin.ModelAdmin):
+    list_display = ('handsonlab', 'name', 'email', 'phone')
+
+
 def export_to_csv(modeladmin, request, queryset):
     from django.http import HttpResponse
     import csv
@@ -154,3 +162,5 @@ admin.site.register(User, UserAdmin)
 admin.site.register(Room, RoomAdmin)
 admin.site.register(TimeSlot, TimeSlotAdmin)
 admin.site.register(RegistrationCount, RegistrationCountAdmin)
+admin.site.register(Handsonlab, HandsonlabAdmin)
+admin.site.register(HandsonlabApply, HandsonlabApplyAdmin)

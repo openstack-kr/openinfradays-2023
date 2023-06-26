@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="detail-section">
+    <!-- Top -->
+    <div class="detail-top">
+        <div class="txt-top">
+            <div class="detail-title">
+                고성능 RAID 컨트롤러<br> GRAID SupremeRAID A to Z
+            </div>
+        </div>
+    </div>
+    <div class="area-link">
+        <a href="/handsonlab/gluesys/apply/s1" >세션1) 13:30 ~ 14:20 : 신청하기 (선착순 5명)</a>
+        <a href="/handsonlab/gluesys/apply/s2" >세션2) 14:30 ~ 15:20 : 신청하기 (선착순 5명)</a>
+        <a href="/handsonlab/gluesys/apply/s3" >세션3) 15:30 ~ 16:20 : 신청하기 (선착순 5명)</a>
+        <a href="/handsonlab/gluesys/apply/s4" >세션4) 16:30 ~ 17:20 : 신청하기 (선착순 5명)</a>
+    </div>
+
+    <div class="txt-introduce">
+        <h2>개요</h2>
+        <p> 난이도 : 초급 <br><br>
+        사전 준비 : Putty 등의 SSH 클라이언트가 설치된 랩탑 <br><br>
+            대상 : GRAID Technology의 SupremeRAID 제품에 관심이 있는 사람 / 고성능 RAID 컨트롤러와 NVMe-oF 기술에 대해 관심이 있으신 분.
+        </p>
+        <h2>알아야하는 내용</h2>
+        <p>
+            - (필수) RAID 기술의 개념에 대해 알고 있음 <br><br>
+            - (권장) LSI MegaRAID와 같은 하드웨어 RAID 컨트롤러를 사용해본 경험이 있음<br><br>
+- (권장) MDRAID와 같은 소프트웨어 RAID를 사용해본 경험이 있음<br><br>
+- (권장) Btrfs/ZFS와 같은 소프트웨어 RAID를 자체적으로 지원하는 파일시스템을 사용해본 경험이 있음<br><br>
+
+        </p>
+        <h2>무엇을 배울 수 있나요?</h2>
+        <p>
+            - 실제 물리적 서버를 가지고 SupremeRAID의 설치와 설정을 체험해 볼 수 있습니다.<br><br>
+- 참가자들은 테스트용 서버와 SupremeRAID 카드를 한대 씩 배정받게 됩니다.<br><br>
+- SupremeRAID의 NVMe-oF 설정을 직접 체험해 봅니다.<br><br>
+- SupremeRAID 장애 발생 시 트러블슈팅에 대해 알아봅니다.<br><br>
+
+        </p>
+        <h2>배우는 기술</h2>
+        <p>
+            GRAID Technology의 SupremeRAID는 NVMe 및 NVMe-oF를 위해 개발된 고성능 RAID 컨트롤러로, 내장된 GPU가 CPU를 대신해 RAID의 입출력 계산 부하를 최소화할 수 있습니다. <br><br>
+            이번 세션에서는 SupremeRAID의 기본적인 설치 과정과 NVMe-oF 타겟 설정, 장애 상황에 대한 트러블슈팅을 통해 SupremeRAID의 안정성을 직접 체험하실 수 있습니다.
+        </p>
+    </div>
+
+
+</section>
+{% endblock %}

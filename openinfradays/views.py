@@ -16,7 +16,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.template.defaulttags import register
 
 from .models import Sponsor, TechSession, VirtualBooth, \
-    AdVideo, Room, TimeSlot, RegistrationCount
+    AdVideo, Room, TimeSlot, RegistrationCount, Handsonlab, HandsonlabApply
 
 
 @register.filter
@@ -122,8 +122,24 @@ def schedules_day2(request):
     return render(request, 'schedules_day2_tmp.html', {**menu, **context})
 
 
-def schedules_day2_temp(request):
-    return render(request, 'schedules_day2_tmp.html')
+def handsonlab(request):
+    hol = Handsonlab.objects.all()
+    d = {}
+    for h in hol:
+        hola = HandsonlabApply.objects.filter(handsonlab=h.title)
+        if len(hola) >= h.max_capacity:
+            d[h.title] = True
+        else:
+            d[h.title] = False
+    return render(request, 'handsonlab.html', {'d': d})
+
+
+def handsonlab_detail(request, title):
+    try:
+        r = render(request, 'handsonlab/%s.html' % title)
+    except:
+        r = render(request, "404.html")
+    return r
 
 
 def virtualbooth_detail(request, virtualbooth_id):
@@ -180,23 +196,26 @@ def session_list(request):
 
 def check_to_plan9(name, phone):
     import requests
-    import json
     data = {'name': name, 'phone': phone}
 
-    res = requests.post(url='https://www.plan9.co.kr/openinfra/assets/app/search.php',
-                        headers={
+    res = requests.post(url="https://www.plan9.co.kr/openinfra/assets/app/db_add.php",
+                        params={
+                            "type": "3",
+                        },headers={
                             "Content-Type": "application/x-www-form-urlencoded; charset=UTF-8",
                             "Host": "www.plan9.co.kr",
                         },
-                        data={
-                            "data": json.dumps(data)
-                        }
+                        data=data
                         )
-    try:
-        d = res.json()
-    except:
+    d = res.text
+    if 'alert' in d:
         return None, None, None, False
-    return d['name'], d['email'], d['company'], True
+
+    from urllib.parse import urlparse
+    from urllib.parse import parse_qs
+    pu = d.split("location.href='")[1].split("&result=1")[0]
+    query = parse_qs(urlparse(pu).query)
+    return query['name'][0], query['email'][0], query['company'][0], True
 
 
 def registration_check(request):
@@ -206,7 +225,62 @@ def registration_check(request):
         r_name, email, company, flag = check_to_plan9(name, phone)
         return render(request, 'profile.html', {'name': r_name, 'email': email, 'company': company, 'flag': flag})
 
-
     return render(request, 'registration_check.html')
 
 
+@register.filter
+def get_item(dictionary, key):
+    return dictionary.get(key)
+
+
+def handsonlab_apply(request, handsonlab_title, option=None):
+    title = {'mantech': 'Kubernetes on Openstack with kuryr', 'skt': '쿠버네티스환경에 어플리케이션 배포하기', 'gluesys': '고성능 RAID 컨트롤러, GRAID SupremeRAID A to Z'}
+    rtitle = title[handsonlab_title]
+    op = {'s1': '13:30 ~ 14:20', 's2': '14:30 ~ 15:20', 's3': '15:30 ~ 16:20', 's4': '16:30 ~ 17:20'}
+
+    if request.method != "POST" and option not in op:
+        return render(request, '404.html')
+
+    if option:
+        rtitle = "%s (%s)" % (rtitle, op.get(option, 's1'))
+        handsonlab_title = "%s_%s" % (handsonlab_title, option)
+
+    if request.method != "POST":
+        return render(request, 'handsonlab_apply.html', {'htitle': handsonlab_title.split("_")[0], 'title': rtitle, 'option': option})
+
+    name = request.POST.get('input_name')
+    phone = request.POST.get('input_phone')
+    r_name, email, company, flag = check_to_plan9(name, phone)
+
+    if not flag:
+        return render(request, 'profile.html', {'name': r_name, 'email': email, 'company': company, 'flag': flag})
+
+    apply = HandsonlabApply.objects.filter(handsonlab=handsonlab_title)
+    entity = HandsonlabApply.objects.filter(phone=phone).get()
+    hol = Handsonlab.objects.get(title=handsonlab_title)
+
+    if entity:
+        if entity.handsonlab == handsonlab_title:
+            return render(request, 'handsonlab_apply.html', {'finish': 2, 'title': rtitle})
+        else:
+            t = title[entity.handsonlab.split('_')[0]]
+            if option:
+                t = "%s (%s)" % (t, op.get(option))
+            return render(request, 'handsonlab_apply.html', {'finish': 3, 'other_title': t})
+
+    if len(apply) >= hol.max_capacity:
+        return render(request, 'handsonlab_apply.html', {'finish': 1, 'title': rtitle})
+
+
+    hola = HandsonlabApply()
+    hola.handsonlab = handsonlab_title
+    hola.name = r_name
+    hola.email = email
+    hola.phone = phone
+    hola.company = company
+    hola.save()
+    return render(request, 'handsonlab_apply.html', {'title': rtitle, 'flag': flag, 'email': email})
+
+
+def handler404(request, exception, template_name="404.html"):
+    return render(request, template_name, status=404)

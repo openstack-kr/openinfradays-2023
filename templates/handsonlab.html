@@ -1,0 +1,80 @@
+{%  extends 'base.html' %}
+
+{% block content %}
+<!--Page Title-->
+<section class="page-title">
+    <div class="auto-container">
+        <h1 style="color: #000000">Hands on Lab</h1>
+        <h2 style="color: #000000">핸즈온랩은 7월 4일 화요일만 진행합니다</h2>
+    </div>
+</section>
+    <div class="anim-icons full-width">
+        <span class="icon icon-circle-blue wow fadeIn"></span>
+        <span class="icon icon-dots wow fadeInleft"></span>
+        <span class="icon icon-line-1 wow zoomIn"></span>
+        <span class="icon icon-circle-1 wow zoomIn"></span>
+    </div>
+
+    <div class="auto-container">
+        <div class="row">
+            <div class="pricing-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="title">Kubernetes on Openstack with kuryr</div>
+                    <div class="title" style="font-size: 23px">13:30 ~ 17:30<br><br>장소 : 205A</div>
+                    <h4 class="price"><img src="/media/images/sponsor/200px-mantech_solution.png"></h4>
+                    <ul class="features" style="text-align: left">
+                        <li>오픈스택 환경에서 Air-gapped 쿠버네티스를 설치합니다</li>
+                        <li>Kuryr CNI를 배포하며, Neutron-based networking in Kubernetes를 경험합니다</li>
+                        <li>Ceph CSI(Container Storage Interface)를 통해 쿠버네티스에서 Ceph를 직접 사용해보는 시간을 가집니다</li>
+                    </ul>
+                    <div class="btn-box">
+                        {% if not d|get_item:'mantech' %}
+                            <a href="/handsonlab/mantech" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% else %}
+                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
+                            <a href="/handsonlab/mantech" class="theme-btn btn-style-two"><span class="btn-title">더 알아보기</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="title" style="font-size: 24pt">고성능 RAID 컨트롤러, GRAID SupremeRAID A to Z</div>
+                    <div class="title" style="font-size: 23px">13:30 ~ 17:30<br><br>장소 : 210A</div>
+                    <h4 class="price"><img src="/media/images/sponsor/200px-GraidGluesys_re.png"></h4>
+                    <ul class="features" style="text-align: left">
+                        <li>SupremeRAID의 설치와 설정을 체험해 볼 수 있습니다.</li>
+                        <li>SupremeRAID의 NVMe-oF 설정을 직접 체험해 봅니다</li>
+                        <li>SupremeRAID 장애 발생 시 트러블슈팅에 대해 알아봅니다</li>
+                    </ul>
+                    <div class="btn-box">
+                        {% if not d|get_item:'gluesys' %}
+                            <a href="/handsonlab/gluesys" class="theme-btn btn-style-two"><span class="btn-title">더 알아보기</span></a>
+                        {% else %}
+                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
+                            <a href="/handsonlab/gluesys" class="theme-btn btn-style-two"><span class="btn-title">더 알아보기</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="title">쿠버네티스환경에 어플리케이션 배포하기</div>
+                    <div class="title" style="font-size: 23px">13:30 ~ 15:30<br><br>장소 : 209A</div>
+                    <h4 class="price"><img src="/media/images/sponsor/200px-SK%ED%85%94%EB%A0%88%EC%BD%A4.png"></h4>
+                    <ul class="features" style="text-align: left">
+                        <li>TKS클라우드서비스를 활용한 손쉬운 앱 배포</li>
+                    </ul>
+                    <div class="btn-box">
+                        {% if not d|get_item:'skt' %}
+                            <a href="/handsonlab/skt" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% else %}
+                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
+                            <a href="/handsonlab/skt" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
