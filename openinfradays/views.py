@@ -238,7 +238,7 @@ def handsonlab_apply(request, handsonlab_title, option=None):
     rtitle = title[handsonlab_title]
     op = {'s1': '13:30 ~ 14:20', 's2': '14:30 ~ 15:20', 's3': '15:30 ~ 16:20', 's4': '16:30 ~ 17:20'}
 
-    if request.method != "POST" and option not in op:
+    if request.method != "POST" and option and option not in op:
         return render(request, '404.html')
 
     if option:
