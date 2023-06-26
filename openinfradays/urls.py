@@ -29,6 +29,8 @@ urlpatterns = [
     path('registration_check', views.registration_check),
     path('schedule_day1', views.schedules_day1),
     path('schedule_day2', views.schedules_day2),
+    path('schedule/day1', views.schedules_day1),
+    path('schedule/day2', views.schedules_day2),
     path('schedule_day2_temp', views.schedules_day2_temp),
 
 ]
