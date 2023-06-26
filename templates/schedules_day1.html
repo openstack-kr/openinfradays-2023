@@ -37,7 +37,7 @@
                                             {% endif %}
                                         </div>
                                         {% if ss.all.session_type != "TimeTable" %}
-                                        <div class="font-size13 text-light-gray">{{ ss.all.speaker.name }}</div>
+                                        <div class="font-size13 text-light-gray">{{ ss.all.speaker.name }} <br> {{  ss.all.speaker.company }}</div>
                                         {% endif %}
                                     </td>
                                 {% else %}
@@ -49,7 +49,7 @@
                                                 <div class="font-size16 text-light-gray">
                                                     <a href="/session/{{ session.id }}" target="_blank" style="word-break: keep-all;">{{ session.title }}</a></div>
                                                 {% if ss.all.session_type != "TimeTable" %}
-                                                <div class="font-size13 text-light-gray">{{ session.speaker.name }}</div>
+                                                <div class="font-size13 text-light-gray">{{ session.speaker.name }} <br> {{  session.speaker.company }} </div>
                                                 {% endif %}
 
                                                 {% endwith %}
