@@ -116,7 +116,7 @@ def schedules_day2(request):
     except:
         print('a')
 
-    rename_rooms = ['Track 1: General', 'Track 2: NVMe & General', 'Track 3: AI', 'Track 4: Server & Storage', 'CXL Forum™️']
+    rename_rooms = ['Track 1: General', 'Track 2: NVMe & General', 'Track 3: AI', 'Track 4: Server & Storage', 'CXL Forum']
     menu = make_menu_context('schedule')
     context = {'rename_rooms': rename_rooms, 'rooms': rooms, 'sessions': session_per_time}
     return render(request, 'schedules_day2_tmp.html', {**menu, **context})
