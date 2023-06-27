@@ -234,7 +234,8 @@ def get_item(dictionary, key):
 
 
 def handsonlab_apply(request, handsonlab_title, option=None):
-    title = {'mantech': 'Kubernetes on Openstack with kuryr', 'skt': '쿠버네티스환경에 어플리케이션 배포하기', 'gluesys': '고성능 RAID 컨트롤러, GRAID SupremeRAID A to Z'}
+    title = {'mantech': 'Kubernetes on Openstack with kuryr', 'skt': '쿠버네티스환경에 어플리케이션 배포하기', 'gluesys': '고성능 RAID 컨트롤러, GRAID SupremeRAID A to Z',
+             'akamai': '쿠버네티스 환경에서 HA 기반의 웹 서비스 구성하기'}
     rtitle = title[handsonlab_title]
     op = {'s1': '13:30 ~ 14:20', 's2': '14:30 ~ 15:20', 's3': '15:30 ~ 16:20', 's4': '16:30 ~ 17:20'}
 

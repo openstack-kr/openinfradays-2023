@@ -75,6 +75,26 @@
                     </div>
                 </div>
             </div>
+            <div class="pricing-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="title">쿠버네티스 환경에서 HA 기반의 웹 서비스 구성하기</div>
+                    <div class="title" style="font-size: 23px">14:00 ~ 15:30<br><br>장소 : 205B</div>
+                    <h4 class="price"><img src="/media/images/sponsor/200px-%EC%95%84%EC%B9%B4%EB%A7%88%EC%9D%B4Akamai.png"></h4>
+                    <ul class="features" style="text-align: left">
+                        <li>Akamai Connected Cloud에서 쿠버네티스 클러스터 생성</li>
+                        <li>IaC를 이용한 쿠버네티스 클러스터 HA 구성</li>
+                        <li>성능과 보안을 높이는 방법 학습</li>
+                    </ul>
+                    <div class="btn-box">
+                        {% if not d|get_item:'skt' %}
+                            <a href="/handsonlab/akamai" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% else %}
+                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
+                            <a href="/handsonlab/akamai" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
