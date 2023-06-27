@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="detail-section">
+    <!-- Top -->
+    <div class="detail-top">
+        <div class="txt-top">
+            <div class="detail-title">
+                HashiCorp Vault 핸즈온 실습
+            </div>
+        </div>
+    </div>
+    <div class="area-link">
+        <a href="/handsonlab/hashicorp/apply">신청하기 (선착순 30명)</a>
+    </div>
+
+    <div class="txt-introduce">
+        <h2>개요</h2>
+        <p>
+            난이도 : 중급 <br><br>
+            수강을 위한 필수 기술 목록 :Kubernetes 기본 지식 , Vault 기본 지식 (선택)1<br><br>
+
+        </p>
+        <h2>소개</h2>
+        <p>
+            Kubernetes에서는 암호, 토큰 또는 키와 같은 중요 정보를 ‘시크릿’ 이라는 오브젝트를 통해서 관리합니다.<br><br>
+            하지만 ‘시크릿’은 암호화 되지 않으며 교체 후 애플리케이션 재배포 등을 수동으로 해야 하는 번거로움이 있습니다.<br><br>
+            이러한 시크릿 관리 시 고려사항을 알아보고 HashiCorp Vault를 통해 어떻게 해결 가능한지 알아봅니다.<br><br>
+        </p>
+        <h2>대상자</h2>
+        <p>
+            - Kubernetes에 관심있는 개발자/엔지니어<br><br>
+    - Kubernetes 환경에서 애플리케이션을 배포 및 운영하는 담당자<br><br>
+    - Kubernetes 보안 담당자<br><br>
+    - 이 외에 클라우드, 클라우드 네이티브 환경의 보안에 관심있는 자<br><br>
+
+        </p>
+        <h2>무엇을 배우나요?</h2>
+        <p>
+        - 클라우드 네이티브 환경에서 다양한 시크릿 관리방안에 대한 고려사항 및 해결 방안을 알아봅니다.<br><br>
+    - 최근 GA된 Vault Secret Operator를 통해 Kubernetes 시크릿을 Seamless하게 관리하는 방안을 학습합니다.<br><br>
+    - Kind 기반의 Kubernetes 클러스터를 구성합니다.<br><br>
+    - Helm을 통해 Vault Cluster 및 Vault Secret Operator(이해, VSO)를 배포합니다.<br><br>
+    - Vault Cluster 기본 구성 후 VSO CRD 생성을 통해 연동합니다.<br><br>
+    - 샘플 애플리케이션을 배포하고 Secret 을 자동으로 변경하고 애플리케이션을 자동 재배포하는 시나리오를 핸즈온 합니다.<br><br>
+        </p>
+
+    </div>
+
+</section>
+{% endblock %}

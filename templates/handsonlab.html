@@ -63,7 +63,10 @@
                     <div class="title" style="font-size: 23px">13:30 ~ 15:30<br><br>장소 : 209A</div>
                     <h4 class="price"><img src="/media/images/sponsor/200px-SK%ED%85%94%EB%A0%88%EC%BD%A4.png"></h4>
                     <ul class="features" style="text-align: left">
-                        <li>TKS클라우드서비스를 활용한 손쉬운 앱 배포</li>
+                        <li>TKS 클라우드 서비스로 손 쉽게 만드는 AWS의 EKS</li>
+                        <li>자바 샘플 앱을 쿠버네티스에 배포해보기</li>
+                        <li>Argo Rollout을 활용한 다양한 배포 전략 학습</li>
+                        <li>TKS의 앱 서빙을 활용한 손 쉬운 배포 학습</li>
                     </ul>
                     <div class="btn-box">
                         {% if not d|get_item:'skt' %}
@@ -91,6 +94,26 @@
                         {% else %}
                             <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
                             <a href="/handsonlab/akamai" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="pricing-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="title">HashiCorp Vault 핸즈온 실습</div>
+                    <div class="title" style="font-size: 23px">16:00 ~ 18:00<br><br>장소 : 205B</div>
+                    <h4 class="price"><img src="/media/images/sponsor/200px-HashiCorp.png"></h4>
+                    <ul class="features" style="text-align: left">
+                        <li>Cloud Native 환경에서 다양한 시크릿 관리 방안 학습</li>
+                        <li>Helm을 통한 Vault Cluster / Vault Secret Operator 배포</li>
+                        <li>성능과 보안을 높이는 방법 학습</li>
+                    </ul>
+                    <div class="btn-box">
+                        {% if not d|get_item:'skt' %}
+                            <a href="/handsonlab/hashicorp" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% else %}
+                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
+                            <a href="/handsonlab/hashicorp" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
                         {% endif %}
                     </div>
                 </div>
