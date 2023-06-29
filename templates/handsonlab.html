@@ -118,6 +118,26 @@
                     </div>
                 </div>
             </div>
+            <div class="pricing-block-three col-lg-4 col-md-6 col-sm-12 wow fadeInUp">
+                <div class="inner-box">
+                    <div class="title">ARM 서버 클라우드 기반 쿠버네티스 구성해보기</div>
+                    <div class="title" style="font-size: 23px">16:00 ~ 18:00<br><br>장소 : 205B</div>
+                    <h4 class="price"><img src="/media/images/sponsor/200px-엑세스랩_oKKKBTs.png"></h4>
+                    <ul class="features" style="text-align: left">
+                        <li>ARM 서버 기반 클라우드 서비스 BlueShift 사용법 학습</li>
+                        <li>BlueShift 인스턴스를 사용하여 쿠버네티스 클러스터 구성</li>
+                        <li>Helm으로 모니터링 시스템 만들기</li>
+                    </ul>
+                    <div class="btn-box">
+                        {% if not d|get_item:'skt' %}
+                            <a href="/handsonlab/xslab" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% else %}
+                            <a href="#" class="theme-btn btn-style-one"><span class="btn-title">마감</span></a>
+                            <a href="/handsonlab/xslab" class="theme-btn btn-style-two" ><span class="btn-title">더 알아보기</span></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 {% endblock %}
