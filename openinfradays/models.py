@@ -54,7 +54,7 @@ class Room(models.Model):
 
 
 class TechSession(models.Model):
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=300)
     details = models.TextField(max_length=2000)
     speaker = models.ForeignKey(Speaker, on_delete=models.SET_NULL, null=True)
     slide = models.FileField(upload_to='slides/', default='', blank=True)
