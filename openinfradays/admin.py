@@ -99,7 +99,7 @@ class HandsonlabAdmin(admin.ModelAdmin):
 
 
 class HandsonlabApplyAdmin(admin.ModelAdmin):
-    list_display = ('handsonlab', 'name', 'email', 'phone')
+    list_display = ('handsonlab', 'name', 'email', 'phone', 'company')
 
 
 def export_to_csv(modeladmin, request, queryset):
