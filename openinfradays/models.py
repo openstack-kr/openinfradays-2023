@@ -14,7 +14,7 @@ class Sponsor(models.Model):
     homepage_url = models.CharField(max_length=100, default='')
     logo = models.ImageField(upload_to='images/sponsor/')
     level = models.CharField(max_length=20,
-                             choices=[('Diamond', 'Diamond'), ('Sapphire', 'Sapphire'), ('Gold', 'Gold'), ('Media', 'Media')],
+                             choices=[('Diamond', 'Diamond'), ('Sapphire', 'Sapphire'), ('Gold', 'Gold'), ('Support', 'Support'), ('Media', 'Media')],
                              default='Gold')
 
     def __str__(self):

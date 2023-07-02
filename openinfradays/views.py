@@ -37,6 +37,7 @@ def index(request):
     diamond = Sponsor.objects.filter(level='Diamond')
     sapphire = Sponsor.objects.filter(level='Sapphire')
     gold = Sponsor.objects.filter(level='Gold')
+    support = Sponsor.objects.filter(level='Support')
     media = Sponsor.objects.filter(level='Media')
     keynote_session = TechSession.objects.filter(session_type='Keynote')
     sponsor_session = TechSession.objects.filter(session_type='Sponsor')

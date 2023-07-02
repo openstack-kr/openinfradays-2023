@@ -252,6 +252,20 @@
         </div>
         <div class="auto-container">
              <div class="sec-title text-center">
+                <h2>Support</h2>
+            </div>
+            <div class="row">
+                {% for d in support %}
+                    <div class="gallery-item col-lg-4 col-md-6 col-sm-12 wow fadeIn">
+                        <div class="image-box text-center">
+                            <figure class="image-box"><a href="{{  d.homepage_url }}" target="_blank"><img src="{{ d.logo.url }}" alt="{{  d.name_ko }}"></a></figure>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="auto-container">
+             <div class="sec-title text-center">
                 <h2>Media</h2>
             </div>
             <div class="row">
