@@ -33,8 +33,8 @@ urlpatterns = [
     path('schedule/day2', views.schedules_day2),
     path('handsonlab', views.handsonlab),
     path('handsonlab/<str:title>', views.handsonlab_detail),
-    path('handsonlab/<str:handsonlab_title>/apply/<str:option>', views.handsonlab_apply),
-    path('handsonlab/<str:handsonlab_title>/apply', views.handsonlab_apply),
+   # path('handsonlab/<str:handsonlab_title>/apply/<str:option>', views.handsonlab_apply),
+    #path('handsonlab/<str:handsonlab_title>/apply', views.handsonlab_apply),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
